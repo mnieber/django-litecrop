@@ -1,4 +1,4 @@
-"""Urls for showing the django_jcrop example."""
+"""Urls for showing the django_litecrop example."""
 
 from django.conf.urls import url
 

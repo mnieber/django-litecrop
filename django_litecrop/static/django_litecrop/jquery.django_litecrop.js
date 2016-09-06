@@ -1,5 +1,5 @@
 (function($) {
-    $.fn.djangoJcrop = function() {
+    $.fn.djangoLitecrop = function() {
         return this.each(function(dummy_index, imgElement) {
             var img_elm = $(imgElement)
 

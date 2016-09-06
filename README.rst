@@ -1,21 +1,21 @@
-============
-django_jcrop
-============
+===============
+django_litecrop
+===============
 
-The django_jcrop module offers non-magical Jcrop based image cropping for Django. It requires that you write your html form code manually (in my opinion, this is the best choice anyway), and makes it easy to drop a Jcrop widget into your form.
+The django_litecrop module offers non-magical Jcrop based image cropping for Django. It is light-weight in the sense that it does not use Django model fields or Django widgets. It requires that you write your html form code manually (in my opinion, this is the best choice anyway), and makes it easy to drop a Jcrop widget into your form.
 
-Step 0: Add django_jcrop to INSTALLED_APPS
+Step 0: Add django_litecrop to INSTALLED_APPS
 ------------------------------------------
 
 .. code:: bash
 
-    pip install django_jcrop
+    pip install django_litecrop
 
 .. code:: python
 
     INSTALLED_APPS = [
         ...
-        django_jcrop
+        django_litecrop
         ...
     ]
 
@@ -41,21 +41,21 @@ Step 1: Add crop_settings to your template context
 
 Step 2: Convert crop_settings into an **<img>** element
 -------------------------------------------------------
-- In your template, use the :code:`django_jcrop_widget` filter to convert :code:`crop_settings` into an :code:`<img>` element that has the :code:`djangoJcrop` class and various other attributes related to cropping.
-- You should include jquery, jcrop and djangoJcrop in the :code:`head` section. To activate image cropping, call :code:`$(".djangoJcrop").djangoJcrop()` in the :code:`$(document).ready()` handler. In the example below, the :code:`init_django_jcrop` template tag is used as a shortcut to do exactly that.
+- In your template, use the :code:`django_litecrop_widget` filter to convert :code:`crop_settings` into an :code:`<img>` element that has the :code:`djangoLiteCrop` class and various other attributes related to cropping.
+- You should include jquery, jcrop and django_litecrop in the :code:`head` section. To activate image cropping, call :code:`$(".djangoLitecrop").djangoLitecrop()` in the :code:`$(document).ready()` handler. In the example below, the :code:`init_django_litecrop` template tag is used as a shortcut to do exactly that.
 - The example below adds a css rule for the :code:`my_cropped_image_class` that we supplied in our :code:`crop_settings`.
-- It's easy to write your own variation on the :code:`django_jcrop_widget` template tag (just copy-paste-edit).
+- It's easy to write your own variation on the :code:`django_litecrop_widget` template tag (just copy-paste-edit).
 
 .. code:: html
 
-    {% load django_jcrop_tags %}
+    {% load django_litecrop_tags %}
     {% load staticfiles %}
 
     <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" type="text/javascript"></script>
     <script src="http://jcrop-cdn.tapmodo.com/v0.9.12/js/jquery.Jcrop.min.js"></script>
     <link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v0.9.12/css/jquery.Jcrop.min.css" type="text/css">
-    <script src="{% static 'django_jcrop/jquery.djangoJcrop.js' %}" type="text/javascript"></script>
+    <script src="{% static 'django_litecrop/jquery.django_litecrop.js' %}" type="text/javascript"></script>
     <style media="screen" type="text/css"> .my_cropped_image_class { height: 200px; !important }
     </head>
 
@@ -63,13 +63,13 @@ Step 2: Convert crop_settings into an **<img>** element
     <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
 
-    <div>{{ crop_settings|django_jcrop_widget }}</div>
+    <div>{{ crop_settings|django_litecrop_widget }}</div>
 
     <button id="upload-submit" name="submit" value="upload">Upload</button>
     </form>
     </body>
 
-    {% init_django_jcrop %}
+    {% init_django_litecrop %}
 
 Step 3: Extract the dimensions of the cropped image from the POST data
 ----------------------------------------------------------------------

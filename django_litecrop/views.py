@@ -26,7 +26,7 @@ class ExampleView(View):
                 ),
             },
         }
-        return render(request, 'django_jcrop/example.html', context)
+        return render(request, 'django_litecrop/example.html', context)
 
     def post(self, request):
         """
