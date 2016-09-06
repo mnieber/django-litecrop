@@ -28,7 +28,7 @@ Step 1: Add crop_settings to your template context
 
     context = {
         'crop_settings': {
-            'url': 'http://www.carnism.org/user/pages/01.who-we-are/01._intro/teaser.jpg',
+            'url': 'http://www.vegan101.info/wp1/wp-content/uploads/baby_pig.jpg',
             'klass': 'my_cropped_image_class',
             'output_key': 'cute_pig_123',
             'jcrop': dict(
@@ -41,7 +41,7 @@ Step 1: Add crop_settings to your template context
 
 Step 2: Convert crop_settings into an **<img>** element
 -------------------------------------------------------
-- In your template, use the :code:`django_litecrop_widget` filter to convert :code:`crop_settings` into an :code:`<img>` element that has the :code:`djangoLiteCrop` class and various other attributes related to cropping.
+- In your template, use the :code:`django_litecrop_widget` filter to convert :code:`crop_settings` into an :code:`<img>` element that has the :code:`djangoLitecrop` class and various other attributes related to cropping.
 - You should include jquery, jcrop and django_litecrop in the :code:`head` section. To activate image cropping, call :code:`$(".djangoLitecrop").djangoLitecrop()` in the :code:`$(document).ready()` handler. In the example below, the :code:`init_django_litecrop` template tag is used as a shortcut to do exactly that.
 - The example below adds a css rule for the :code:`my_cropped_image_class` that we supplied in our :code:`crop_settings`.
 - It's easy to write your own variation on the :code:`django_litecrop_widget` template tag (just copy-paste-edit).
