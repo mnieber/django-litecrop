@@ -15,8 +15,8 @@ class ExampleView(View):
         context = {
             'crop_settings': {
                 'url': (
-                    'http://www.carnism.org/user/pages/' +
-                    '01.who-we-are/01._intro/teaser.jpg'
+                    'http://www.vegan101.info/wp1/wp-content/' +
+                    'uploads/baby_pig.jpg'
                 ),
                 'klass': 'my_cropped_image_class',
                 'output_key': 'cute_pig_123',
